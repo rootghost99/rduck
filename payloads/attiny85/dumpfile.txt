@@ -1,1 +1,26 @@
+//This DigiSpark script creates a text file on desktop with pwned message
+#include "DigiKeyboard.h"
+void setup() {
+  pinMode(1, OUTPUT); //LED on Model A 
+}
 
+void loop() {
+ DigiKeyboard.sendKeyStroke(0);
+ DigiKeyboard.delay(500);
+ DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+ DigiKeyboard.delay(500);
+ DigiKeyboard.println("cmd /k mode con: cols=50 lines=40"); //smallest cmd window possible
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+ DigiKeyboard.delay(500);
+ DigiKeyboard.println("echo plz dont plug things into your computer randomly at an event. #thank_a_threathunter! > pwnd.TXT");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+ DigiKeyboard.delay(500);
+ DigiKeyboard.print("exit");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+ DigiKeyboard.delay(500);
+
+ digitalWrite(1, HIGH);
+ for (;;) {
+ /*empty*/
+}
+}
